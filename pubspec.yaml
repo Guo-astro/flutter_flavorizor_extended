@@ -1,6 +1,6 @@
 name: flutter_flavorizr_extended
-description: A flutter utility to easily create flavors in your flutter application
-version: 0.0.1
+description: extended flutter_flavorizr for updateRun
+version: 0.0.2
 repository: https://github.com/Guo-astro/flutter_flavorizor_extended
 issue_tracker: https://github.com/Guo-astro/flutter_flavorizor_extended/issues
 homepage: https://github.com/Guo-astro/flutter_flavorizor_extended
