@@ -25,7 +25,7 @@
 
 import 'dart:io';
 
-import 'package:flutter_flavorizr_extended_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
 import 'package:flutter_flavorizr_extended/src/parser/parser.dart';
 import 'package:flutter_flavorizr_extended/src/processors/darwin/google/firebase/darwin_firebase_script_processor.dart';
 import 'package:flutter_test/flutter_test.dart';
