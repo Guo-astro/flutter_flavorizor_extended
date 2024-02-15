@@ -3,7 +3,7 @@ description: A flutter utility to easily create flavors in your flutter applicat
 version: 0.0.1
 repository: https://github.com/Guo-astro/flutter_flavorizor_extended
 issue_tracker: https://github.com/Guo-astro/flutter_flavorizor_extended/issues
-homepage: ttps://github.com/Guo-astro/flutter_flavorizor_extended
+homepage: https://github.com/Guo-astro/flutter_flavorizor_extended
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

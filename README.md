@@ -1,4 +1,10 @@
 # Flutter Flavorizr Extended
+## TLDR;
+Add -r with 2 options:
+```terminal
+flutter pub run flutter_flavorizr_extended -r initializationRun
+flutter pub run flutter_flavorizr_extended -r updateRun
+```
 
 A flutter utility to easily create flavors in your flutter application
 
@@ -7,9 +13,6 @@ A flutter utility to easily create flavors in your flutter application
 [![Star on GitHub](https://img.shields.io/github/stars/AngeloAvv/flutter_flavorizr.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/AngeloAvv/flutter_flavorizr)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/AngeloAvv)
-
-If you want to support this project, please leave a star, share this project, or consider donating
-through [Github Sponsor](https://github.com/sponsors/AngeloAvv).
 
 ## Getting Started
 
@@ -396,21 +399,21 @@ adaptiveIcon manually.
 When you finished defining the flavorizr configuration, you can proceed by running the script with:
 
 ```terminal
-flutter pub run flutter_flavorizr
+flutter pub run flutter_flavorizr_extended 
 ```
 
 You can also run flutter_flavorizr with a custom set of processors by appending the -p (or
 --processors) param followed by the processor names separated by comma:
 
 ```terminal
-flutter pub run flutter_flavorizr -p <processor_1>,<processor_2>
+flutter pub run flutter_flavorizr_extended -p <processor_1>,<processor_2>
 ```
 
 Example
 
 ```terminal
-flutter pub run flutter_flavorizr -p assets:download
-flutter pub run flutter_flavorizr -p assets:download,assets:extract
+flutter pub run flutter_flavorizr_extended -p assets:download
+flutter pub run flutter_flavorizr_extended -p assets:download,assets:extract
 ```
 
 ## Run your flavors
@@ -585,32 +588,9 @@ flavors:
       bundleId: "com.example.banana"
 ```
 
-## Troubleshooting
 
-How to fix the
-error ["Unable to load contents of file list"](docs%2Ftroubleshooting%2Funable-to-load-contents-of-file-list%2FREADME.md)
-
-## Docs & Tutorials (from the community)
-
-[Easily build flavors in Flutter (Android and iOS) with flutter_flavorizr](https://angeloavv.medium.com/easily-build-flavors-in-flutter-android-and-ios-with-flutter-flavorizr-d48cbf956e4) -
-Angelo Cassano
-
-[Get the best out of Flutter flavors with flutter_flavorizr](https://pierre-dev.hashnode.dev/get-the-best-out-of-flutter-flavors-with-flutterflavorizr) -
-Pierre Monier
-
-## Further developments
-
-* Let the user define its custom set of available instructions.
-
-## Questions and bugs
-
-Please feel free to submit new issues if you encounter problems while using this library.
-
-If you need help with the use of the library or you just want to request new features, please use
-the [Discussions](https://github.com/AngeloAvv/flutter_flavorizr/discussions) section of the
-repository. Issues opened as questions will be automatically closed.
 
 ## License
 
-Flutter Flavorizr is available under the MIT license. See the LICENSE
+Flutter Flavorizr Extended is available under the MIT license. See the LICENSE
 file for more info.

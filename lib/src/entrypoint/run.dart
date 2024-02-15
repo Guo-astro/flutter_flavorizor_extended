@@ -58,7 +58,7 @@ void execute(List<String> args) {
   if (argRunType == 'updateRun') {
     flavorizr.instructions = Processor.updateInstructionSet;
   }
-  if (argRunType == 'firstRun' && argProcessors.isNotEmpty) {
+  if (argRunType == 'initializationRun' && argProcessors.isNotEmpty) {
     flavorizr.instructions = argProcessors;
   }
 
