@@ -112,6 +112,55 @@ class Processor extends AbstractProcessor<void> {
     // IDE
     'ide:config'
   ];
+  static const List<String> updateInstructionSet = [
+    // Prepare
+    'assets:download',
+    'assets:extract',
+
+    // Android
+    'android:androidManifest',
+    'android:buildGradle',
+    'android:dummyAssets',
+    'android:icons',
+    'android:adaptiveIcons',
+
+    // Flutter
+    // 'flutter:flavors',
+    // 'flutter:app',
+    // 'flutter:pages',
+    // 'flutter:main',
+    'flutter:targets',
+
+    // iOS
+    'ios:xcconfig',
+    'ios:buildTargets',
+    'ios:schema',
+    'ios:dummyAssets',
+    'ios:icons',
+    'ios:plist',
+    'ios:launchScreen',
+
+    // macOS
+    'macos:xcconfig',
+    'macos:configs',
+    'macos:buildTargets',
+    'macos:schema',
+    'macos:dummyAssets',
+    'macos:icons',
+    'macos:plist',
+
+    // Google
+    'google:firebase',
+
+    // Huawei
+    'huawei:agconnect',
+
+    // Cleanup
+    'assets:clean',
+
+    // IDE
+    'ide:config'
+  ];
 
   Processor(this._flavorizr)
       : _availableProcessors = _initAvailableProcessors(_flavorizr),

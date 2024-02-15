@@ -38,8 +38,10 @@ void execute(List<String> args) {
   ArgParser argParser = ArgParser();
   argParser.addMultiOption('processors',
       abbr: 'p', allowed: Processor.defaultInstructionSet, splitCommas: true);
+  argParser.addOption('runType', abbr: 'r'); // Added this line
   ArgResults results = argParser.parse(args);
   List<String> argProcessors = results['processors'];
+  String? argRunType = results['runType']; // Added this line
 
   Parser parser = Parser(
     pubspecPath: 'pubspec.yaml',
@@ -53,8 +55,10 @@ void execute(List<String> args) {
     stderr.writeln(e);
     exit(65);
   }
-
-  if (argProcessors.isNotEmpty) {
+  if (argRunType == 'updateRun') {
+    flavorizr.instructions = Processor.updateInstructionSet;
+  }
+  if (argRunType == 'firstRun' && argProcessors.isNotEmpty) {
     flavorizr.instructions = argProcessors;
   }
 

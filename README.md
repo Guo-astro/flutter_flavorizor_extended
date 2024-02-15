@@ -8,20 +8,32 @@ A flutter utility to easily create flavors in your flutter application
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 [![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/AngeloAvv)
 
-If you want to support this project, please leave a star, share this project, or consider donating through [Github Sponsor](https://github.com/sponsors/AngeloAvv).
+If you want to support this project, please leave a star, share this project, or consider donating
+through [Github Sponsor](https://github.com/sponsors/AngeloAvv).
 
 ## Getting Started
 
 Let's start by setting up our environment in order to run this Extended version of Flutter
-Flavorizr 
+Flavorizr
 
 ### Prerequisites
-We aimed to fix the following issues:
+
+We aimed to fix the following issues by introducing update instruction set:
 
 - Side note: this tool works better on a new and clean Flutter project.
-Since some processors reference some existing files and a specific base
-structure, it could be possible that running Flutter Flavorizr over an
-existing project could throw errors.
+  Since some processors reference some existing files and a specific base
+  structure, it could be possible that running Flutter Flavorizr over an
+  existing project could throw errors.
+- After first run the command flutter pub run flutter_flavorizr_extended, we usaually do not want to
+  override the .dart we manually fixed after the first auto generation.So we removed the following
+  processors when the second update run:
+
+```dart
+// 'flutter:flavors',
+// 'flutter:app',
+// 'flutter:pages',
+// 'flutter:main',
+```
 
 Before running Flutter Flavorizr, you must install the following
 software:
@@ -74,15 +86,15 @@ flavors:
       name: "Apple App"
 
     android:
-      applicationId: "com.example.apple"  
+      applicationId: "com.example.apple"
     ios:
       bundleId: "com.example.apple"
     macos:
-      bundleId: "com.example.apple"  
+      bundleId: "com.example.apple"
   banana:
     app:
       name: "Banana App"
-  
+
     android:
       applicationId: "com.example.banana"
     ios:
@@ -91,7 +103,7 @@ flavors:
       bundleId: "com.example.banana"
 ```
 
-Alternatively, add a new key named flavorizr and define a sub item named *flavors*. 
+Alternatively, add a new key named flavorizr and define a sub item named *flavors*.
 Under the flavors array you can define the name of the
 flavors, in our example *apple* and *banana*. For each flavor you have
 to specify the *app name*, the *applicationId* and the *bundleId*.
@@ -109,7 +121,7 @@ flavorizr:
       ios:
         bundleId: "com.example.apple"
       macos:
-        bundleId: "com.example.apple"        
+        bundleId: "com.example.apple"
     banana:
       app:
         name: "Banana App"
@@ -126,13 +138,13 @@ flavorizr:
 
 #### flavorizr
 
-| key                                     | type   | default                                                                             | required | description                                                                                   |
-|:----------------------------------------|:-------|:------------------------------------------------------------------------------------|:---------|:----------------------------------------------------------------------------------------------|
-| app                                     | Object |                                                                                     | false    | An object describing the general capabilities of an app                                       |
-| flavors                                 | Array  |                                                                                     | true     | An array of items. Each of them describes a flavor configuration                              |
-| [instructions](#available-instructions) | Array  |                                                                                     | false    | An array of instructions to customize the flavorizr process                                   |
+| key                                     | type   | default                                                                                    | required | description                                                                                   |
+|:----------------------------------------|:-------|:-------------------------------------------------------------------------------------------|:---------|:----------------------------------------------------------------------------------------------|
+| app                                     | Object |                                                                                            | false    | An object describing the general capabilities of an app                                       |
+| flavors                                 | Array  |                                                                                            | true     | An array of items. Each of them describes a flavor configuration                              |
+| [instructions](#available-instructions) | Array  |                                                                                            | false    | An array of instructions to customize the flavorizr process                                   |
 | assetsUrl                               | String | [link](https://github.com/AngeloAvv/flutter_flavorizr/releases/download/v2.2.1/assets.zip) | false    | A string containing the URL of the zip assets file. The default points to the current release |
-| ide                                     | String |                                                                                     | false    | The IDE in which the app is being developed. Currently only `vscode` or `idea`                |
+| ide                                     | String |                                                                                            | false    | The IDE in which the app is being developed. Currently only `vscode` or `idea`                |
 
 ##### <a href="#available-instructions">Available instructions</a>
 
@@ -170,11 +182,11 @@ flavorizr:
 
 #### android (under app)
 
-| key              | type   | default       | required | description                                                        |
-|:-----------------|:-------|:--------------|:---------|:-------------------------------------------------------------------|
-| flavorDimensions | String | "flavor-type" | false    | The value of the flavorDimensions in the android build.gradle file |
-| resValues        | Array  | {}            | false    | An array which contains a set of resValues configurations          |
-| buildConfigFields| Array  | {}            | false    | An array which contains a set of buildConfigFields configurations          |
+| key               | type   | default       | required | description                                                        |
+|:------------------|:-------|:--------------|:---------|:-------------------------------------------------------------------|
+| flavorDimensions  | String | "flavor-type" | false    | The value of the flavorDimensions in the android build.gradle file |
+| resValues         | Array  | {}            | false    | An array which contains a set of resValues configurations          |
+| buildConfigFields | Array  | {}            | false    | An array which contains a set of buildConfigFields configurations  |
 
 #### ios (under app)
 
@@ -254,7 +266,7 @@ flavors:
   apple:
     app:
       name: "Apple App"
-  
+
     android:
       applicationId: "com.example.apple"
       resValues:
@@ -264,24 +276,24 @@ flavors:
         variable_two:
           type: "string"
           value: "example variable two"
-  
+
     ios:
       bundleId: "com.example.apple"
 ```
 
 #### buildConfigField (for Android)
 
-| key   | type   | default | required | description                                                                                                                              |
-|:------|:-------|:--------|:---------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| key   | type   | default | required | description                                                                                                                                              |
+|:------|:-------|:--------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------|
 | type  | String |         | true     | The type of the [buildConfigField](https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/variant/BuildConfigField) variable |
-| value | String |         | true     | The value of the buildConfigField variable                                                                                                       |
+| value | String |         | true     | The value of the buildConfigField variable                                                                                                               |
 
 ```yaml
 flavors:
   apple:
     app:
       name: "Apple App"
-  
+
     android:
       applicationId: "com.example.apple"
       buildConfigFields:
@@ -294,7 +306,7 @@ flavors:
         field_three:
           type: "double"
           value: "20.0"
-  
+
     ios:
       bundleId: "com.example.apple"
 ```
@@ -311,10 +323,10 @@ flavors:
   apple:
     app:
       name: "Apple App"
-  
+
     android:
       applicationId: "com.example.apple"
-  
+
     ios:
       bundleId: "com.example.apple"
       variables:
@@ -324,47 +336,50 @@ flavors:
           target: "Debug"
           value: "variable2"        
 ```
+
 #### customConfig (for Android only)
 
 You can define any custom property for android
+
 ```yml
 flavors:
   apple:
     app:
       name: "Apple App"
-  
+
     android:
       applicationId: "com.example.apple"
       customConfig:
-          versionNameSuffix: "\"-green-prod\"" # Don't forget to escape strings with \"
-          signingConfig: flavorSigning.green
-          versionCode: 1000
-          minSdkVersion: 23
-          # ..... and any custom property you want to add
+        versionNameSuffix: "\"-green-prod\"" # Don't forget to escape strings with \"
+        signingConfig: flavorSigning.green
+        versionCode: 1000
+        minSdkVersion: 23
+        # ..... and any custom property you want to add
 ```
 
 This .yml part, generate this custom android flavor:
 
 ```groovy
 apple {
-  dimension "flavor-type"
-  applicationId "com.example.apple"
-  versionNameSuffix "-green-prod"
-  signingConfig flavorSigning.green
-  versionCode 1000
-  minSdkVersion 23
+    dimension "flavor-type"
+    applicationId "com.example.apple"
+    versionNameSuffix "-green-prod"
+    signingConfig flavorSigning.green
+    versionCode 1000
+    minSdkVersion 23
 }
 ```
 
 #### adaptiveIcon (for Android only)
 
 You can define adaptiveIcon for android:
+
 ```yml
 flavors:
   apple:
     app:
       name: "Apple App"
-  
+
     android:
       applicationId: "com.example.apple"
       icon: "assets/icon/appleApp/ic_launcher.png"
@@ -372,8 +387,9 @@ flavors:
         foreground: "assets/adaptive_icon/appleApp/ic_launcher_foreground.png"
         background: "assets/adaptive_icon/appleApp/ic_launcher_background.png"
 ```
-After removing adaptiveIcon key, the adaptive icons generated before will still exist. Please delete adaptiveIcon manually.
 
+After removing adaptiveIcon key, the adaptive icons generated before will still exist. Please delete
+adaptiveIcon manually.
 
 ## Usage
 
@@ -383,7 +399,8 @@ When you finished defining the flavorizr configuration, you can proceed by runni
 flutter pub run flutter_flavorizr
 ```
 
-You can also run flutter_flavorizr with a custom set of processors by appending the -p (or --processors) param followed by the processor names separated by comma:
+You can also run flutter_flavorizr with a custom set of processors by appending the -p (or
+--processors) param followed by the processor names separated by comma:
 
 ```terminal
 flutter pub run flutter_flavorizr -p <processor_1>,<processor_2>
@@ -411,12 +428,14 @@ flutter run --flavor apple -t lib/main_apple.dart
 flutter run --flavor banana -t lib/main_banana.dart
 ```
 
-Currently, due to a bug in the Flutter SDK, it's not possible to run the macOS flavors from the terminal.
+Currently, due to a bug in the Flutter SDK, it's not possible to run the macOS flavors from the
+terminal.
 You can run them from XCode by selecting the proper schema and by pressing play.
 
 ### Default processors set
 
-By default, when you do not specify a custom set of processors by appending the -p (or --processors) param, a default processors set will be used:
+By default, when you do not specify a custom set of processors by appending the -p (or --processors)
+param, a default processors set will be used:
 
 * assets:download
 * assets:extract
@@ -485,15 +504,20 @@ can see a clear reference on the title getter defined in the F class.
 
 ## Side notes
 
-I haven't found yet a good groovy parser to guarantee the idempotency of the AndroidBuildGradleProcessor.  
-The only way to keep track of the autogenerated flavorDimensions is to mark up the beginning and the end of the section with magic comments.  
+I haven't found yet a good groovy parser to guarantee the idempotency of the
+AndroidBuildGradleProcessor.  
+The only way to keep track of the autogenerated flavorDimensions is to mark up the beginning and the
+end of the section with magic comments.  
 Please do not erase these comments otherwise you will break down the AndroidBuildGradleProcessor.
 
 ## Third party services
 
 ### Google Firebase
 
-In order to flavorize your project and enable Firebase in your flavor you have to define a firebase object below each OS flavor. Under the firebase object you must define the config path of the google-services.json (if you are under Android configuration) or GoogleService-Info.plist (if you are under iOS or macOS configuration).
+In order to flavorize your project and enable Firebase in your flavor you have to define a firebase
+object below each OS flavor. Under the firebase object you must define the config path of the
+google-services.json (if you are under Android configuration) or GoogleService-Info.plist (if you
+are under iOS or macOS configuration).
 
 As you can see in the example below, we added the path accordingly
 
@@ -502,21 +526,21 @@ flavors:
   apple:
     app:
       name: "Apple App"
-  
+
     android:
       applicationId: "com.example.apple"
       firebase:
         config: ".firebase/apple/google-services.json"
-  
+
     ios:
       bundleId: "com.example.apple"
       firebase:
         config: ".firebase/apple/GoogleService-Info.plist"
-  
+
   banana:
     app:
       name: "Banana App"
-      
+
     android:
       applicationId: "com.example.banana"
       firebase:
@@ -530,7 +554,8 @@ flavors:
 ### Huawei AppGallery Connect
 
 In order to flavorize your project and enable AppGallery Connect in your flavor  
-you have to define an agconnect object below each Android flavor. Under the agconnect object you must define the config path of the agconnect-services.json.
+you have to define an agconnect object below each Android flavor. Under the agconnect object you
+must define the config path of the agconnect-services.json.
 
 As you can see in the example below, we added the path accordingly
 
@@ -539,19 +564,19 @@ flavors:
   apple:
     app:
       name: "Apple App"
-  
+
     android:
       applicationId: "com.example.apple"
       agconnect:
         config: ".agconnect/apple/agconnect-services.json"
-  
+
     ios:
       bundleId: "com.example.apple"
-  
+
   banana:
     app:
       name: "Banana App"
-      
+
     android:
       applicationId: "com.example.banana"
       agconnect:
@@ -561,12 +586,17 @@ flavors:
 ```
 
 ## Troubleshooting
-How to fix the error ["Unable to load contents of file list"](docs%2Ftroubleshooting%2Funable-to-load-contents-of-file-list%2FREADME.md)
+
+How to fix the
+error ["Unable to load contents of file list"](docs%2Ftroubleshooting%2Funable-to-load-contents-of-file-list%2FREADME.md)
 
 ## Docs & Tutorials (from the community)
-[Easily build flavors in Flutter (Android and iOS) with flutter_flavorizr](https://angeloavv.medium.com/easily-build-flavors-in-flutter-android-and-ios-with-flutter-flavorizr-d48cbf956e4) - Angelo Cassano
 
-[Get the best out of Flutter flavors with flutter_flavorizr](https://pierre-dev.hashnode.dev/get-the-best-out-of-flutter-flavors-with-flutterflavorizr) - Pierre Monier
+[Easily build flavors in Flutter (Android and iOS) with flutter_flavorizr](https://angeloavv.medium.com/easily-build-flavors-in-flutter-android-and-ios-with-flutter-flavorizr-d48cbf956e4) -
+Angelo Cassano
+
+[Get the best out of Flutter flavors with flutter_flavorizr](https://pierre-dev.hashnode.dev/get-the-best-out-of-flutter-flavors-with-flutterflavorizr) -
+Pierre Monier
 
 ## Further developments
 
@@ -577,7 +607,7 @@ How to fix the error ["Unable to load contents of file list"](docs%2Ftroubleshoo
 Please feel free to submit new issues if you encounter problems while using this library.
 
 If you need help with the use of the library or you just want to request new features, please use
-the [Discussions](https://github.com/AngeloAvv/flutter_flavorizr/discussions) section of the 
+the [Discussions](https://github.com/AngeloAvv/flutter_flavorizr/discussions) section of the
 repository. Issues opened as questions will be automatically closed.
 
 ## License
