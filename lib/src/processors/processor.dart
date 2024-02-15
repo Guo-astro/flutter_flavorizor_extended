@@ -129,7 +129,7 @@ class Processor extends AbstractProcessor<void> {
     // 'flutter:app',
     // 'flutter:pages',
     // 'flutter:main',
-    'flutter:targets',
+    // 'flutter:targets',
 
     // iOS
     'ios:xcconfig',
