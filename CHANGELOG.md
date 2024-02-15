@@ -1,4 +1,9 @@
-## NEXT
+## 0.0.1
+* Add -r with 2 options:
+```terminal
+flutter pub run flutter_flavorizr_extended -r initializationRun
+flutter pub run flutter_flavorizr_extended -r updateRun
+```
 
 ## 2.2.1
 * Fixed platform optionals error due to eager processors initialization

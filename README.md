@@ -5,6 +5,7 @@ Add -r with 2 options:
 flutter pub run flutter_flavorizr_extended -r initializationRun
 flutter pub run flutter_flavorizr_extended -r updateRun
 ```
+Note:All credit goes to the original author, AngeloAvv.
 
 A flutter utility to easily create flavors in your flutter application
 
@@ -591,6 +592,5 @@ flavors:
 
 
 ## License
-
 Flutter Flavorizr Extended is available under the MIT license. See the LICENSE
 file for more info.
