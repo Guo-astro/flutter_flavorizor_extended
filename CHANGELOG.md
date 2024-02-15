@@ -1,3 +1,7 @@
+## 0.0.3
+
+* When manually added SigningConfigs block in build.gradle it must be placed before the flavor config block.
+
 ## 0.0.2
 
 * Commented out flutter:targets for updateRun processors
