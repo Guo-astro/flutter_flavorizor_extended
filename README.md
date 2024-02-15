@@ -37,6 +37,7 @@ We aimed to fix the following issues by introducing update instruction set:
 // 'flutter:app',
 // 'flutter:pages',
 // 'flutter:main',
+// 'flutter:targets',
 ```
 
 Before running Flutter Flavorizr, you must install the following
