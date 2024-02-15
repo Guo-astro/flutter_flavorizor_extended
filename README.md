@@ -1,4 +1,4 @@
-# Flutter Flavorizr
+# Flutter Flavorizr Extended
 
 A flutter utility to easily create flavors in your flutter application
 
