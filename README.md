@@ -12,12 +12,13 @@ If you want to support this project, please leave a star, share this project, or
 
 ## Getting Started
 
-Let's start by setting up our environment in order to run Flutter
-Flavorizr
+Let's start by setting up our environment in order to run this Extended version of Flutter
+Flavorizr 
 
 ### Prerequisites
+We aimed to fix the following issues:
 
-Side note: this tool works better on a new and clean Flutter project.
+- Side note: this tool works better on a new and clean Flutter project.
 Since some processors reference some existing files and a specific base
 structure, it could be possible that running Flutter Flavorizr over an
 existing project could throw errors.
@@ -44,7 +45,7 @@ in your [pubspec.yaml](https://dart.dev/tools/pub/pubspec):
 
 ```yaml
 dev_dependencies:
-  flutter_flavorizr: ^2.2.1
+  flutter_flavorizr_extended: ^0.0.1
 ```
 
 You can install packages from the command line:
