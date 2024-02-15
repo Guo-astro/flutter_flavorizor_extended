@@ -23,10 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/commons/new_file_string_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
-import 'package:flutter_flavorizr/src/processors/ide/idea/idea_launch_processor.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/new_file_string_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/ide/idea/idea_launch_processor.dart';
 
 class IdeaLaunchFileProcessor extends QueueProcessor {
   IdeaLaunchFileProcessor(

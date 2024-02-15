@@ -23,10 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/commons/image_resizer_processor.dart';
-import 'package:flutter_flavorizr/src/processors/darwin/icons/darwin_icon_target_processor.dart';
-import 'package:flutter_flavorizr/src/utils/constants.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/image_resizer_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/darwin/icons/darwin_icon_target_processor.dart';
+import 'package:flutter_flavorizr_extended/src/utils/constants.dart';
 
 class IOSIconTargetProcessor extends DarwinIconTargetProcessor {
   static const _entries = {

@@ -25,10 +25,10 @@
 
 import 'dart:io';
 
-import 'package:flutter_flavorizr/src/exception/file_not_found_exception.dart';
-import 'package:flutter_flavorizr/src/exception/malformed_resource_exception.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/commons/copy_file_processor.dart';
+import 'package:flutter_flavorizr_extended/src/exception/file_not_found_exception.dart';
+import 'package:flutter_flavorizr_extended/src/exception/malformed_resource_exception.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/copy_file_processor.dart';
 import 'package:image/image.dart';
 
 class ImageResizerProcessor extends CopyFileProcessor {

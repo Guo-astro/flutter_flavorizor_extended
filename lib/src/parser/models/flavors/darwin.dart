@@ -23,10 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/mixins/build_settings_mixin.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/commons/os.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/darwin/variable.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/google/firebase/firebase.dart';
+import 'package:flutter_flavorizr_extended/src/parser/mixins/build_settings_mixin.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/commons/os.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/darwin/variable.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/google/firebase/firebase.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'darwin.g.dart';

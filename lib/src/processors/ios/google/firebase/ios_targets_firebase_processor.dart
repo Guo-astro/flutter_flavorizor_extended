@@ -23,14 +23,14 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/commons/empty_file_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/new_file_string_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/shell_processor.dart';
-import 'package:flutter_flavorizr/src/processors/darwin/google/firebase/darwin_firebase_processor.dart';
-import 'package:flutter_flavorizr/src/processors/darwin/google/firebase/darwin_firebase_script_processor.dart';
-import 'package:flutter_flavorizr/src/utils/darwin_utils.dart' as ios_utils;
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/empty_file_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/new_file_string_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/shell_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/darwin/google/firebase/darwin_firebase_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/darwin/google/firebase/darwin_firebase_script_processor.dart';
+import 'package:flutter_flavorizr_extended/src/utils/darwin_utils.dart' as ios_utils;
 
 class IOSTargetsFirebaseProcessor extends QueueProcessor {
   IOSTargetsFirebaseProcessor({

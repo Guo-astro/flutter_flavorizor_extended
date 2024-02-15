@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/mixins/build_settings_mixin.dart';
+import 'package:flutter_flavorizr_extended/src/parser/mixins/build_settings_mixin.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'macos.g.dart';

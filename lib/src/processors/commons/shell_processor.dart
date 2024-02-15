@@ -25,8 +25,8 @@
 
 import 'dart:io';
 
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/commons/abstract_processor.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/abstract_processor.dart';
 
 class ShellProcessor extends AbstractProcessor<void> {
   final String _path;

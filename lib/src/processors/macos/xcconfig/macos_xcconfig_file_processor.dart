@@ -23,10 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/darwin/enums.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
-import 'package:flutter_flavorizr/src/processors/macos/xcconfig/macos_xcconfig_mode_file_processor.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/darwin/enums.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/macos/xcconfig/macos_xcconfig_mode_file_processor.dart';
 
 class MacOSXCConfigFileProcessor extends QueueProcessor {
   MacOSXCConfigFileProcessor(

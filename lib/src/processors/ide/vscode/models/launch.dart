@@ -25,7 +25,7 @@
 
 import 'dart:convert';
 
-import 'package:flutter_flavorizr/src/processors/ide/vscode/models/configuration.dart';
+import 'package:flutter_flavorizr_extended/src/processors/ide/vscode/models/configuration.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'launch.g.dart';

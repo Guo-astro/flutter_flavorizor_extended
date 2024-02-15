@@ -25,12 +25,12 @@
 
 import 'dart:collection';
 
-import 'package:flutter_flavorizr/src/extensions/extensions_map.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/darwin/enums.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/darwin/variable.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/flavor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/string_processor.dart';
+import 'package:flutter_flavorizr_extended/src/extensions/extensions_map.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/darwin/enums.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/darwin/variable.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/flavor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/string_processor.dart';
 
 class IOSXCConfigProcessor extends StringProcessor {
   final String _flavorName;

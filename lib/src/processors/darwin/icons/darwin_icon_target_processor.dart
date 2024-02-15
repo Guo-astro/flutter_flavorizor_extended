@@ -23,9 +23,9 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/commons/image_resizer_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/image_resizer_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
 import 'package:sprintf/sprintf.dart';
 
 abstract class DarwinIconTargetProcessor extends QueueProcessor {

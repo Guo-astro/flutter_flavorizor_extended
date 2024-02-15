@@ -24,7 +24,7 @@
  */
 
 import 'package:checked_yaml/checked_yaml.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'pubspec.g.dart';

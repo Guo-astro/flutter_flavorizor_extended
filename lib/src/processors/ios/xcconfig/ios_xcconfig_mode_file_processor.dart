@@ -23,15 +23,15 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/extensions/extensions_string.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/darwin/enums.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/flavor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/new_file_string_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/shell_processor.dart';
-import 'package:flutter_flavorizr/src/processors/ios/xcconfig/ios_xcconfig_processor.dart';
-import 'package:flutter_flavorizr/src/utils/darwin_utils.dart' as ios_utils;
+import 'package:flutter_flavorizr_extended/src/extensions/extensions_string.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/darwin/enums.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/flavor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/new_file_string_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/shell_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/ios/xcconfig/ios_xcconfig_processor.dart';
+import 'package:flutter_flavorizr_extended/src/utils/darwin_utils.dart' as ios_utils;
 
 class IOSXCConfigModeFileProcessor extends QueueProcessor {
   IOSXCConfigModeFileProcessor(

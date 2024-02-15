@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/flutter_flavorizr.dart';
+import 'package:flutter_flavorizr_extended/flutter_flavorizr.dart';
 
 void main(List<String> args) {
   execute(args);

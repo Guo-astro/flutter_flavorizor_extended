@@ -23,12 +23,12 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/extensions/extensions_map.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/android/icons/android_adaptive_icons_processor.dart';
-import 'package:flutter_flavorizr/src/processors/android/icons/android_adaptive_icon_xml_processor.dart';
-import 'package:flutter_flavorizr/src/processors/android/icons/android_icon_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/extensions/extensions_map.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/android/icons/android_adaptive_icons_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/android/icons/android_adaptive_icon_xml_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/android/icons/android_icon_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
 
 class AndroidIconsProcessor extends QueueProcessor {
   AndroidIconsProcessor({

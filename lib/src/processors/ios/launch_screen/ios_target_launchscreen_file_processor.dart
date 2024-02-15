@@ -23,13 +23,13 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/commons/copy_file_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/replace_string_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/runtime_file_string_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/shell_processor.dart';
-import 'package:flutter_flavorizr/src/utils/darwin_utils.dart' as ios_utils;
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/copy_file_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/replace_string_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/runtime_file_string_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/shell_processor.dart';
+import 'package:flutter_flavorizr_extended/src/utils/darwin_utils.dart' as ios_utils;
 
 class IOSTargetLaunchScreenFileProcessor extends QueueProcessor {
   IOSTargetLaunchScreenFileProcessor(

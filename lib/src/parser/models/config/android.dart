@@ -23,8 +23,8 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/parser/models/flavors/android/build_config_field.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/android/res_value.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/android/build_config_field.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/android/res_value.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'android.g.dart';

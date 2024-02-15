@@ -25,10 +25,10 @@
 
 import 'dart:io';
 
-import 'package:flutter_flavorizr/src/exception/file_not_found_exception.dart';
-import 'package:flutter_flavorizr/src/exception/missing_required_fields_exception.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/parser/models/pubspec.dart';
+import 'package:flutter_flavorizr_extended/src/exception/file_not_found_exception.dart';
+import 'package:flutter_flavorizr_extended/src/exception/missing_required_fields_exception.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/pubspec.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 class Parser {

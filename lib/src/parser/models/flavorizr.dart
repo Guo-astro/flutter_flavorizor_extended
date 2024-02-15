@@ -23,7 +23,7 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/extensions/extensions_map.dart';
+import 'package:flutter_flavorizr_extended/src/extensions/extensions_map.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:checked_yaml/checked_yaml.dart';
 

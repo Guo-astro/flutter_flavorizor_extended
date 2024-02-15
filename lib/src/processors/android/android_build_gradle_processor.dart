@@ -25,13 +25,13 @@
 
 import 'dart:collection';
 
-import 'package:flutter_flavorizr/src/exception/existing_flavor_dimensions_exception.dart';
-import 'package:flutter_flavorizr/src/exception/malformed_resource_exception.dart';
-import 'package:flutter_flavorizr/src/parser/models/config/android.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/android/build_config_field.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavors/android/res_value.dart';
-import 'package:flutter_flavorizr/src/processors/commons/string_processor.dart';
+import 'package:flutter_flavorizr_extended/src/exception/existing_flavor_dimensions_exception.dart';
+import 'package:flutter_flavorizr_extended/src/exception/malformed_resource_exception.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/config/android.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/android/build_config_field.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavors/android/res_value.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/string_processor.dart';
 
 class AndroidBuildGradleProcessor extends StringProcessor {
   static const String androidEntryPoint = 'android {';

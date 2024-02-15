@@ -23,10 +23,10 @@
  * OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import 'package:flutter_flavorizr/src/extensions/extensions_map.dart';
-import 'package:flutter_flavorizr/src/parser/models/flavorizr.dart';
-import 'package:flutter_flavorizr/src/processors/android/huawei/agconnect/android_target_agconnect_processor.dart';
-import 'package:flutter_flavorizr/src/processors/commons/queue_processor.dart';
+import 'package:flutter_flavorizr_extended/src/extensions/extensions_map.dart';
+import 'package:flutter_flavorizr_extended/src/parser/models/flavorizr.dart';
+import 'package:flutter_flavorizr_extended/src/processors/android/huawei/agconnect/android_target_agconnect_processor.dart';
+import 'package:flutter_flavorizr_extended/src/processors/commons/queue_processor.dart';
 
 class AndroidAGConnectProcessor extends QueueProcessor {
   AndroidAGConnectProcessor({
