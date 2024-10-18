@@ -247,8 +247,10 @@ dev_dependencies:
   ```terminal
   flutter pub run flutter_flavorizr_extended -r initializationRun
   ```
+Note after the first time you run the above command you want to modify the flavorizr config,make sure delete the following code in Android app build.gradle:
 
 
+[build_gradle_processor_test.dart](test%2Fprocessors%2Fandroid%2Fbuild_gradle_processor_test.dart)
 
 ### Step 4: **iOS Signing Configuration:**
 <details>
