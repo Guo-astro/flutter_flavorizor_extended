@@ -131,13 +131,15 @@ dev_dependencies:
 ### Step 1: **Ensure the Icon Exists:**
 <details>
       <summary>Make sure your app icons is correctly placed in the specified path.</summary>
+      <img src="https://raw.githubusercontent.com/Guo-astro/flutter_flavorizor_extended/c0782240fe50d9f362b70ceb29d18a8413ae9a76/doc/setup/appicons.png" width="200" height="200"/>
 </details>
 
 
 
 ### Step 2: **Android Signing Configuration:**
 <details>
-  <summary>Make sure all the signingConfig listed in the pubsec.yaml exists</summary>
+  <summary>Following the steps to make sure all the signingConfigs listed in the pubsec.yaml exists</summary>
+
 
 
 - ### 1: Generate a Signing Key
@@ -155,7 +157,8 @@ dev_dependencies:
 
   Create a file named key.properties with the following content. Never push this file to public
   repositories!
-  - Note after 2,3 you should have folder structure like the following:<img src="doc%2Fsetup%2Fandroid_signing_config.png" width="200" height="200"/>
+ 
+  - Note after 2,3 you should have folder structure like the following:<img src="https://raw.githubusercontent.com/Guo-astro/flutter_flavorizor_extended/c0782240fe50d9f362b70ceb29d18a8413ae9a76/doc/setup/android_signing_config.png" width="200" height="200"/>
   ```gradle
   development.keyAlias=template_app_key
   development.keyPassword=<Your password>
@@ -247,10 +250,8 @@ dev_dependencies:
   ```terminal
   flutter pub run flutter_flavorizr_extended -r initializationRun
   ```
-Note after the first time you run the above command you want to modify the flavorizr config,make sure delete the following code in Android app build.gradle:
 
 
-[build_gradle_processor_test.dart](test%2Fprocessors%2Fandroid%2Fbuild_gradle_processor_test.dart)
 
 ### Step 4: **iOS Signing Configuration:**
 <details>
@@ -260,13 +261,30 @@ Note after the first time you run the above command you want to modify the flavo
 
 
 
-### Step 5: Finalize:
+### Step 5: Finalize setup:
 
 After setting all this up,  
  ```terminal
   flutter pub run flutter_flavorizr_extended -r updateRun
 ```
    Note you can always comeback to regenrate your configuration use which will **not** rewrite your existing main*.dart!
+
+### Step 6: What if I need to change the config?:
+
+<details>
+  <summary>Currently the android code should be deleted manually</summary>
+
+  1. Delete the following code in Android app build.gradle:
+  <img src="https://raw.githubusercontent.com/Guo-astro/flutter_flavorizor_extended/c0782240fe50d9f362b70ceb29d18a8413ae9a76/doc/setup/gradle_flavor.png" />
+  1. Rerun the following command
+
+  ```terminal
+    flutter pub run flutter_flavorizr_extended -r updateRun
+  ```
+
+
+</details>
+
 
 ---
 For additional configuration details, refer to the flutter_flavorizr package documentation.
