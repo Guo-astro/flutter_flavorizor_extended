@@ -32,11 +32,113 @@ dev_dependencies:
 
 ## Getting Started with working Example Configuration:
 
-### Step 0: **Ensure the Icon Exists:**
 
-Make sure your app icon is correctly placed in the specified path.
+### Step 0: **Configure pubspec.yaml**
 
-### Step 1: **Android Signing Configuration:**
+
+<details>
+      <summary>Assume we need have 4 flavors named: development,qa,uat,prod</summary>
+
+  ```yaml
+        name: flutter_template_app
+        description: "A new Flutter project."
+        publish_to: 'none'
+        version: 0.1.0
+        
+        environment:
+          sdk: ^3.5.3
+        
+        dependencies:
+          flutter:
+            sdk: flutter
+        
+        dev_dependencies:
+          flutter_test:
+            sdk: flutter
+          flutter_lints: ^5.0.0
+          flutter_flavorizr_extended: ^0.0.4
+        
+        
+        flutter:
+          uses-material-design: true
+        
+        
+        flavorizr:
+          flavors:
+            development:
+              app:
+                name: "FlutterTemplateApp"
+              android:
+                applicationId: "go.template.flutter"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+                customConfig:
+                  applicationIdSuffix: "\".development\""
+                  versionNameSuffix: "\"Dev\"" # Don't forget to escape strings with \"
+                  signingConfig: signingConfigs.debug
+              ios:
+                bundleId: "go.template.flutter.development"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+                buildSettings:
+            qa:
+              app:
+                name: "FlutterTemplateApp"
+              android:
+                applicationId: "go.template.flutter.qa"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+                customConfig:
+                  applicationIdSuffix: "\".qa\""
+                  versionNameSuffix: "\"QA\"" # Don't forget to escape strings with \"
+                  signingConfig: signingConfigs.qa
+              ios:
+                bundleId: "go.template.flutter.qa"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+            uat:
+              app:
+                name: "FlutterTemplateApp"
+              android:
+                applicationId: "go.template.flutter"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+                customConfig:
+                  applicationIdSuffix: "\".uat\""
+                  versionNameSuffix: "\"UAT\"" # Don't forget to escape strings with \"
+                  signingConfig: signingConfigs.uat
+              ios:
+                bundleId: "go.template.flutter.uat"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+            prod:
+              app:
+                name: "FlutterTemplateApp"
+              android:
+                applicationId: "go.template.flutter"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+                customConfig:
+                  signingConfig: signingConfigs.release
+              ios:
+                bundleId: "go.template.flutter"
+                generateDummyAssets: true
+                icon: "assets/images/icons/appicon.png"
+  ```
+</details>
+
+
+### Step 1: **Ensure the Icon Exists:**
+<details>
+      <summary>Make sure your app icons is correctly placed in the specified path.</summary>
+</details>
+
+
+
+### Step 2: **Android Signing Configuration:**
+<details>
+  <summary>Make sure all the signingConfig listed in the pubsec.yaml exists</summary>
+
 
 - ### 1: Generate a Signing Key
 
@@ -138,101 +240,32 @@ Make sure your app icon is correctly placed in the specified path.
 
         }
   ```
+</details>
 
-- ### 5: Configure pubspec.yaml
+### Step 3: **Genearate all flavors**
 
-  Add the following flavorizr section to your pubspec.yaml to define the flavors:
-  ```yaml
-  name: flutter_template_app
-  description: "A new Flutter project."
-  publish_to: 'none'
-  version: 0.1.0
-  
-  environment:
-    sdk: ^3.5.3
-  
-  dependencies:
-    flutter:
-      sdk: flutter
-  
-  dev_dependencies:
-    flutter_test:
-      sdk: flutter
-    flutter_lints: ^5.0.0
-    flutter_flavorizr_extended: ^0.0.4
-  
-  
-  flutter:
-    uses-material-design: true
-  
-  
-  flavorizr:
-    flavors:
-      dev:
-        app:
-          name: "FlutterTemplateApp"
-        android:
-          applicationId: "go.template.flutter"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
-          customConfig:
-            applicationIdSuffix: "\".development\""
-            versionNameSuffix: "\"Dev\"" # Don't forget to escape strings with \"
-            signingConfig: signingConfigs.debug
-        ios:
-          bundleId: "go.template.flutter.development"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
-          buildSettings:
-      qa:
-        app:
-          name: "FlutterTemplateApp"
-        android:
-          applicationId: "go.template.flutter.qa"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
-          customConfig:
-            applicationIdSuffix: "\".qa\""
-            versionNameSuffix: "\"QA\"" # Don't forget to escape strings with \"
-            signingConfig: signingConfigs.qa
-        ios:
-          bundleId: "go.template.flutter.qa"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
-      uat:
-        app:
-          name: "FlutterTemplateApp"
-        android:
-          applicationId: "go.template.flutter"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
-          customConfig:
-            applicationIdSuffix: "\".uat\""
-            versionNameSuffix: "\"UAT\"" # Don't forget to escape strings with \"
-            signingConfig: signingConfigs.uat
-        ios:
-          bundleId: "go.template.flutter.uat"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
-      prod:
-        app:
-          name: "FlutterTemplateApp"
-        android:
-          applicationId: "go.template.flutter"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
-          customConfig:
-            signingConfig: signingConfigs.release
-        ios:
-          bundleId: "go.template.flutter"
-          generateDummyAssets: true
-          icon: "assets/images/icons/appicon.png"
+  ```terminal
+  flutter pub run flutter_flavorizr_extended -r initializationRun
   ```
 
-### Step 3: Enjoy!
 
-After setting this up, run flutter pub run flutter_flavorizr_extended to generate the
-flavor-specific files and enjoy hassle-free flavor management!
 
+### Step 4: **iOS Signing Configuration:**
+<details>
+  <summary>Make sure the app bundle identidier is the same as in the app store</summary>
+  Detail comming soon...
+</details>
+
+
+
+### Step 5: Finalize:
+
+After setting all this up,  
+ ```terminal
+  flutter pub run flutter_flavorizr_extended -r updateRun
+```
+   Note you can always comeback to regenrate your configuration use which will **not** rewrite your existing main*.dart!
+
+---
 For additional configuration details, refer to the flutter_flavorizr package documentation.
 Note:All credit goes to the original author, AngeloAvv.
