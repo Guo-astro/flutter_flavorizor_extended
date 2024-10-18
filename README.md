@@ -53,7 +53,7 @@ Make sure your app icon is correctly placed in the specified path.
 
   Create a file named key.properties with the following content. Never push this file to public
   repositories!
-
+  - Note after 2,3 you should have folder structure like the following:<img src="doc%2Fsetup%2Fandroid_signing_config.png" width="200" height="200"/>
   ```gradle
   development.keyAlias=template_app_key
   development.keyPassword=<Your password>
@@ -88,10 +88,10 @@ Make sure your app icon is correctly placed in the specified path.
                 keyAlias System.getenv()["CM_KEY_ALIAS"]
                 keyPassword System.getenv()["CM_KEY_PASSWORD"]
             } else {
-                keyAlias keyProperties['development.keyAlias']
+                keyAlias keyProperties['dev.keyAlias']
                 keyPassword keyProperties['development.keyPassword']
                 storeFile keyProperties['development.storeFile'] ? file(keyProperties['development.storeFile']) : null
-                storePassword keyProperties['development.storePassword']
+                storePassword keyProperties['dev.storePassword']
             }
 
         }
