@@ -32,7 +32,6 @@ dev_dependencies:
 
 ## Getting Started with working Example Configuration:
 
-
 ### Step 0: **Ensure the Icon Exists:**
 
 Make sure your app icon is correctly placed in the specified path.
@@ -48,7 +47,7 @@ Make sure your app icon is correctly placed in the specified path.
 
 - ### 2: Organize Your Keystore
 
-  - Create a folder called keystores and place the generated template_app.jks file inside it.
+    - Create a folder called keystores and place the generated template_app.jks file inside it.
 
 - ### 3: Create key.properties
 
@@ -89,10 +88,10 @@ Make sure your app icon is correctly placed in the specified path.
                 keyAlias System.getenv()["CM_KEY_ALIAS"]
                 keyPassword System.getenv()["CM_KEY_PASSWORD"]
             } else {
-                keyAlias keyProperties['dev.keyAlias']
-                keyPassword keyProperties['dev.keyPassword']
-                storeFile keyProperties['dev.storeFile'] ? file(keyProperties['dev.storeFile']) : null
-                storePassword keyProperties['dev.storePassword']
+                keyAlias keyProperties['development.keyAlias']
+                keyPassword keyProperties['development.keyPassword']
+                storeFile keyProperties['development.storeFile'] ? file(keyProperties['development.storeFile']) : null
+                storePassword keyProperties['development.storePassword']
             }
 
         }
@@ -140,7 +139,7 @@ Make sure your app icon is correctly placed in the specified path.
         }
   ```
 
-- ###  5: Configure pubspec.yaml
+- ### 5: Configure pubspec.yaml
 
   Add the following flavorizr section to your pubspec.yaml to define the flavors:
   ```yaml

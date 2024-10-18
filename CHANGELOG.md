@@ -1,18 +1,8 @@
 ## 2024-10-18
 
+### v0.0.6
+
 ### v0.0.5
-
-Update readme for working examples
-
-### Added
-
-### Fixed
-
-### Changed
-
-- Update readme for working examples
-
-## 2024-10-18
 
 ### v0.0.4
 
