@@ -256,7 +256,9 @@ dev_dependencies:
 ### Step 4: **iOS Signing Configuration:**
 <details>
   <summary>Make sure the app bundle identidier is the same as in the app store</summary>
-  Detail comming soon...
+  
+  - Open the ios folder using xcode.You should see the auto generated profiles: <img src="https://raw.githubusercontent.com/Guo-astro/flutter_flavorizor_extended/c0782240fe50d9f362b70ceb29d18a8413ae9a76/doc/setup/remove_ios_profile.png" width="200" height="200"/>
+  - Click on the "-" button to remove the original Debug, Profile, Release config we dont need them. 
 </details>
 
 
