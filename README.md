@@ -1,36 +1,33 @@
 # Flutter Flavorizr Extended
+
 ## TLDR;
+
 Add -r with 2 options:
+
 ```terminal
 flutter pub run flutter_flavorizr_extended -r initializationRun
 flutter pub run flutter_flavorizr_extended -r updateRun
 ```
+
 Note:All credit goes to the original author, AngeloAvv.
 
 A flutter utility to easily create flavors in your flutter application
-
-[![Pub](https://img.shields.io/pub/v/flutter_flavorizr.svg)](https://pub.dev/packages/flutter_flavorizr)
-![Dart CI](https://github.com/AngeloAvv/flutter_flavorizr/workflows/Dart%20CI/badge.svg)
-[![Star on GitHub](https://img.shields.io/github/stars/AngeloAvv/flutter_flavorizr.svg?style=flat&logo=github&colorB=deeppink&label=stars)](https://github.com/AngeloAvv/flutter_flavorizr)
-[![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
-[![](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/AngeloAvv)
 
 ## Getting Started
 
 Let's start by setting up our environment in order to run this Extended version of Flutter
 Flavorizr
 
-### Prerequisites
+### Differences from the Original flutter_flavorizr:
 
-We aimed to fix the following issues by introducing update instruction set:
-
-- Side note: this tool works better on a new and clean Flutter project.
-  Since some processors reference some existing files and a specific base
-  structure, it could be possible that running Flutter Flavorizr over an
-  existing project could throw errors.
-- After first run the command flutter pub run flutter_flavorizr_extended, we usaually do not want to
-  override the .dart we manually fixed after the first auto generation.So we removed the following
-  processors when the second update run:
+- No Overwriting of Android signingConfig: The signingConfig section in Android is no longer
+  overwritten.
+- Compatibility with Existing Projects: Running the original flutter_flavorizr on an existing
+  project could cause errors due to file references and base structure dependencies. This has been
+  addressed.
+- No Overwriting of Custom Dart Files: After running flutter pub run flutter_flavorizr_extended for
+  the first time, we avoid overwriting .dart files that you may have manually modified. The
+  following processors are skipped in subsequent runs:
 
 ```dart
 // 'flutter:flavors',
@@ -40,29 +37,9 @@ We aimed to fix the following issues by introducing update instruction set:
 // 'flutter:targets',
 ```
 
-Before running Flutter Flavorizr, you must install the following
-software:
-
-* [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
-* [Gem](https://rubygems.org/pages/download)
-* [Xcodeproj](https://github.com/CocoaPods/Xcodeproj) (through RubyGems)
-
-These prerequisites are needed to manipulate the iOS and macOS projects and
-schemes. If you are interested in flavorizing Android only, you can skip
-this step. Keep in mind that you will have to use a custom instructions
-set with Android and Flutter processors only, otherwise an error will
-occur.
-
-### Installation
-
-This package is intended to support development of Flutter projects. In
-general, put it under
-[dev_dependencies](https://dart.dev/tools/pub/dependencies#dev-dependencies),
-in your [pubspec.yaml](https://dart.dev/tools/pub/pubspec):
-
 ```yaml
 dev_dependencies:
-  flutter_flavorizr_extended: ^0.0.1
+  flutter_flavorizr_extended: ^0.0.4
 ```
 
 You can install packages from the command line:
@@ -71,10 +48,12 @@ You can install packages from the command line:
 pub get
 ```
 
+
+==================================================Original docs below============================
 ## Create your flavors
 
 Once all of the prerequisites have been installed and you have added
-flutter_flavorizr as a dev dependency, you have to edit your
+flutter_flavorizr_extended as a dev dependency, you have to edit your
 [pubspec.yaml](https://dart.dev/tools/pub/pubspec) and define the
 flavors.
 
@@ -404,7 +383,7 @@ When you finished defining the flavorizr configuration, you can proceed by runni
 flutter pub run flutter_flavorizr_extended 
 ```
 
-You can also run flutter_flavorizr with a custom set of processors by appending the -p (or
+You can also run flutter_flavorizr_extended with a custom set of processors by appending the -p (or
 --processors) param followed by the processor names separated by comma:
 
 ```terminal
@@ -474,7 +453,7 @@ param, a default processors set will be used:
 
 ## Customize your app
 
-Flutter_flavorizr creates different dart files in the lib folder. In the
+flutter_flavorizr creates different dart files in the lib folder. In the
 flavors.dart file we have the F class which contains all of our
 customizations.
 
@@ -590,8 +569,7 @@ flavors:
       bundleId: "com.example.banana"
 ```
 
-
-
 ## License
+
 Flutter Flavorizr Extended is available under the MIT license. See the LICENSE
 file for more info.
