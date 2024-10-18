@@ -27,7 +27,7 @@
 
 ```yaml
 dev_dependencies:
-  flutter_flavorizr_extended: ^0.0.5
+  flutter_flavorizr_extended: ^0.0.7
 ```
 
 ## Getting Started with working Example Configuration:
