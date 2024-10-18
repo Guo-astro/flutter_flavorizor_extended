@@ -1,19 +1,42 @@
 ## 2024-10-18
 
+### v0.0.5
+
+Update readme for working examples
+
+### Added
+
+### Fixed
+
+### Changed
+
+- Update readme for working examples
+
+## 2024-10-18
+
 ### v0.0.4
 
 Update flutter sdk and third party dependency to newest.
+
 ### Added
+
 ### Fixed
-- Fixed [build_expected.gradle](test_resources%2Fandroid%2Fbuild_gradle_processor_with_custom_config_test%2Fbuild_expected.gradle) to conform with the modification and make test pass.
+
+-
+
+Fixed [build_expected.gradle](test_resources%2Fandroid%2Fbuild_gradle_processor_with_custom_config_test%2Fbuild_expected.gradle)
+to conform with the modification and make test pass.
+
 ### Changed
+
 - Running ```fvm use 3.24.3```  upgraded 3.16.9 -> 3.24.3
-  - Also changed version in gihub action to 3.24.3
+    - Also changed version in gihub action to 3.24.3
 - Changed README.md
 
 ## 0.0.3
 
-* When manually added SigningConfigs block in build.gradle it must be placed before the flavor config block.
+* When manually added SigningConfigs block in build.gradle it must be placed before the flavor
+  config block.
 
 ## 0.0.2
 
