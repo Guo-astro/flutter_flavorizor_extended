@@ -1,3 +1,13 @@
+
+## 2024-10-21
+### v0.0.9
+
+### Added
+
+### Fixed
+Fixed android gradle idempotent generation bug.
+
+
 ## 2024-10-18
 ### v0.0.8
 ### v0.0.7

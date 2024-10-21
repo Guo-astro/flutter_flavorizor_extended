@@ -1,28 +1,3 @@
-/*
- * Copyright (c) 2023 Angelo Cassano
- *
- * Permission is hereby granted, free of charge, to any person
- * obtaining a copy of this software and associated documentation
- * files (the "Software"), to deal in the Software without
- * restriction, including without limitation the rights to use,
- * copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the
- * Software is furnished to do so, subject to the following
- * conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- * OTHER DEALINGS IN THE SOFTWARE.
- */
-
 import 'dart:collection';
 
 import 'package:flutter_flavorizr_extended/src/exception/existing_flavor_dimensions_exception.dart';
@@ -49,68 +24,92 @@ class AndroidBuildGradleProcessor extends StringProcessor {
 
   @override
   String execute() {
-    final int androidPosition = input!.indexOf(androidEntryPoint);
-    final bool existingSigningConfig = input!.contains(signingConfigs);
+    // Use class-level constants
+    final String androidEntryPoint =
+        AndroidBuildGradleProcessor.androidEntryPoint;
+    final String flavorDimensionsKeyword =
+        AndroidBuildGradleProcessor.flavorDimensions;
+    final String beginFlavorDimensionsMarkup =
+        AndroidBuildGradleProcessor.beginFlavorDimensionsMarkup;
+    final String endFlavorDimensionsMarkup =
+        AndroidBuildGradleProcessor.endFlavorDimensionsMarkup;
 
-    final bool existingFlavorDimensions = input!.contains(flavorDimensions);
+    // Find positions of key elements in the input
+    final int androidPosition = input!.indexOf(androidEntryPoint);
+    final bool existingFlavorDimensions =
+        input!.contains(flavorDimensionsKeyword);
     final int beginFlavorDimensionsMarkupPosition =
         input!.indexOf(beginFlavorDimensionsMarkup);
     final int endFlavorDimensionsMarkupPosition =
         input!.indexOf(endFlavorDimensionsMarkup);
 
+    // Validate the presence of the Android entry point
     if (androidPosition < 0) {
       throw MalformedResourceException(input!);
     }
-    var signingConfigEndPosition = -1;
-    if (existingSigningConfig) {
-      final int signingConfigPosition = input!.indexOf('signingConfigs {');
-      signingConfigEndPosition = _findMatchingClosingBrace(
-          input!, signingConfigPosition + 'signingConfigs '.length);
-      if (signingConfigEndPosition == -1) {
-        throw MalformedResourceException(input!);
-      }
-    }
-    if (existingFlavorDimensions &&
-        (beginFlavorDimensionsMarkupPosition < 0 ||
-            endFlavorDimensionsMarkupPosition < 0)) {
-      throw ExistingFlavorDimensionsException(input!);
+
+    // Find the end of the android block
+    final int androidBlockEndPosition = _findMatchingClosingBrace(
+        input!, androidPosition + androidEntryPoint.length);
+    if (androidBlockEndPosition == -1) {
+      throw MalformedResourceException(
+          "No matching closing brace for android block.");
     }
 
-    if (signingConfigEndPosition == -1) {
+    // Handle the scenario where flavor dimensions exist
+    if (existingFlavorDimensions) {
+      // Ensure both begin and end markers are present
+      if (beginFlavorDimensionsMarkupPosition < 0 ||
+          endFlavorDimensionsMarkupPosition < 0) {
+        throw ExistingFlavorDimensionsException(input!);
+      }
+
+      // Modify the contents within the existing flavor dimensions block
       StringBuffer buffer = StringBuffer();
 
-      _cleanupFlavors(
-        buffer,
-        beginFlavorDimensionsMarkupPosition,
-        endFlavorDimensionsMarkupPosition,
-      );
-      _appendStartContent(buffer, androidPosition);
+      // Append content before the flavor dimensions block (including the begin marker)
+      buffer.write(input!.substring(
+          0,
+          beginFlavorDimensionsMarkupPosition +
+              beginFlavorDimensionsMarkup.length));
+      buffer.writeln(); // Ensure there's a newline for proper formatting
+
+      // Append updated flavor dimensions content
       _appendFlavorsDimension(buffer);
       _appendFlavors(buffer);
 
-      _appendEndContent(buffer, androidPosition);
+      buffer.writeln('    $endFlavorDimensionsMarkup'); // Maintain indentation
+
+      // Append the rest of the content after the flavor dimensions block
+      buffer.write(input!.substring(endFlavorDimensionsMarkupPosition +
+          endFlavorDimensionsMarkup.length));
 
       return buffer.toString();
     } else {
+      // Flavor dimensions do not exist; proceed to insert them
+
       StringBuffer buffer = StringBuffer();
 
-      _cleanupFlavors(
-        buffer,
-        beginFlavorDimensionsMarkupPosition,
-        endFlavorDimensionsMarkupPosition,
-      );
-      _appendStartContentAfterSigningConfig(buffer, signingConfigEndPosition);
+      // Append content before the end of the android block
+      buffer.write(input!.substring(0, androidBlockEndPosition));
+
+      buffer.writeln(); // Ensure there's a newline before inserting
+      buffer.writeln('    $beginFlavorDimensionsMarkup');
       _appendFlavorsDimension(buffer);
       _appendFlavors(buffer);
+      buffer.writeln('    $endFlavorDimensionsMarkup'); // Maintain indentation
+      buffer.writeln(); // Ensure there's a newline after inserting
 
-      _appendEndContentAfterSigningConfig(buffer, signingConfigEndPosition);
+      // Append the closing brace of the android block
+      buffer.write(input!.substring(androidBlockEndPosition));
 
       return buffer.toString();
     }
   }
 
   int _findMatchingClosingBrace(String input, int startPosition) {
-    int braceCount = 0;
+    int braceCount =
+        1; // Initialize to 1 since we've already found an opening brace
     for (int i = startPosition; i < input.length; i++) {
       if (input[i] == '{') {
         braceCount++;
@@ -124,37 +123,12 @@ class AndroidBuildGradleProcessor extends StringProcessor {
     return -1; // Indicates mismatched braces
   }
 
-  void _cleanupFlavors(
-    StringBuffer buffer,
-    int beginFlavorDimensionsMarkupPosition,
-    endFlavorDimensionsMarkupPosition,
-  ) {
-    if (beginFlavorDimensionsMarkupPosition >= 0 &&
-        endFlavorDimensionsMarkupPosition >= 0) {
-      final String flavorDimensions = input!.substring(
-        beginFlavorDimensionsMarkupPosition - 2,
-        endFlavorDimensionsMarkupPosition +
-            endFlavorDimensionsMarkup.length +
-            4,
-      );
-
-      input = input!.replaceAll(flavorDimensions, '');
-    }
-  }
-
-  void _appendStartContent(StringBuffer buffer, int androidPosition) {
-    buffer.writeln(
-        input!.substring(0, androidPosition + androidEntryPoint.length));
-  }
-
-
   void _appendFlavorsDimension(StringBuffer buffer) {
     final flavorDimension =
         config.app?.android?.flavorDimensions ?? Android.kFlavorDimensionValue;
 
-    buffer.writeln();
-    buffer.writeln('    $beginFlavorDimensionsMarkup');
-    buffer.writeln('    flavorDimensions += "$flavorDimension"');
+    // Use correct Gradle syntax for flavorDimensions
+    buffer.writeln('    flavorDimensions "$flavorDimension"');
     buffer.writeln();
   }
 
@@ -189,8 +163,8 @@ class AndroidBuildGradleProcessor extends StringProcessor {
 
       final Map<String, BuildConfigField> buildConfigFields =
           LinkedHashMap.fromEntries([
-        ...config.app?.android?.buildConfigFields.entries ?? [],
-        ...flavor.android?.buildConfigFields.entries ?? []
+        ...?config.app?.android?.buildConfigFields.entries,
+        ...?flavor.android?.buildConfigFields.entries
       ]);
       buildConfigFields.forEach((key, res) {
         buffer.writeln(
@@ -202,21 +176,6 @@ class AndroidBuildGradleProcessor extends StringProcessor {
 
     buffer.writeln('    }');
     buffer.writeln();
-  }
-
-  void _appendEndContent(StringBuffer buffer, int androidPosition) {
-    buffer.writeln('    $endFlavorDimensionsMarkup');
-    buffer.write(
-        input!.substring(androidPosition + androidEntryPoint.length + 1));
-  }
-  void _appendStartContentAfterSigningConfig(
-      StringBuffer buffer, int signingConfigEndPosition) {
-    buffer.writeln(input!.substring(0, signingConfigEndPosition+1));
-  }
-  void _appendEndContentAfterSigningConfig(StringBuffer buffer, int signingConfigEndPosition) {
-    buffer.writeln('    $endFlavorDimensionsMarkup');
-    buffer.write(
-        input!.substring(signingConfigEndPosition + 1));
   }
 
   @override

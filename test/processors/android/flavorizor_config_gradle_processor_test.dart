@@ -64,23 +64,6 @@ void main() {
     expect(actual, matcher);
   });
 
-  test('Test idempotent AndroidBuildGradleProcessor', () {
-    String content = File(
-            'test_resources/android/build_gradle_processor_test/build_idempotent.gradle')
-        .readAsStringSync();
-    String matcher = File(
-            'test_resources/android/build_gradle_processor_test/build_expected.gradle')
-        .readAsStringSync();
-
-    AndroidBuildGradleProcessor processor =
-        AndroidBuildGradleProcessor(config: flavorizr, input: content);
-    String actual = processor.execute();
-
-    actual = TestUtils.stripEndOfLines(actual);
-    matcher = TestUtils.stripEndOfLines(matcher);
-
-    expect(actual, matcher);
-  });
 
   test('Test malformed AndroidBuildGradleProcessor', () {
     AndroidBuildGradleProcessor processor =

@@ -22,52 +22,67 @@ dev_dependencies:
 
 
 flavorizr:
-  app:
-    android:
-      flavorDimensions: "flavor-type" # optional?
-
   flavors:
-    apple1:
+    development:
       app:
-        name: "Apple App"
-
+        name: "DevelopmentFlutterTemplateApp"
       android:
-        applicationId: "com.example.apple"
-
+        applicationId: "go.template.flutter"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+        customConfig:
+          applicationIdSuffix: "\".development\""
+          versionNameSuffix: "\"Development\"" # Don't forget to escape strings with \"
+          signingConfig: signingConfigs.development
       ios:
-        bundleId: "com.example.apple"
-        variables:
-          VARIABLE_ONE:
-            value: "variable1"
-          VARIABLE_TWO:
-            target: "debug"
-            value: "variable2"
-
-    banana:
+        bundleId: "go.template.flutter.development"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+        buildSettings:
+    qa:
       app:
-        name: "Banana App"
-
+        name: "QAFlutterTemplateApp"
       android:
-        applicationId: "com.example.banana"
-        resValues:
-          variable_one:
-            type: "string"
-            value: "test variable one"
-          variable_two:
-            type: "string"
-            value: "test variable two"
-        buildConfigFields:
-          field_one:
-            type: "String"
-            value: "test field one"
-          field_two:
-            type: "char"
-            value: "y"
-          field_three:
-            type: "double"
-            value: "20.0"
+        applicationId: "go.template.flutter.qa"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+        customConfig:
+          applicationIdSuffix: "\".qa\""
+          versionNameSuffix: "\"QA\"" # Don't forget to escape strings with \"
+          signingConfig: signingConfigs.qa
       ios:
-        bundleId: "com.example.banana"
+        bundleId: "go.template.flutter.qa"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+    uat:
+      app:
+        name: "UATFlutterTemplateApp"
+      android:
+        applicationId: "go.template.flutter"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+        customConfig:
+          applicationIdSuffix: "\".uat\""
+          versionNameSuffix: "\"UAT\"" # Don't forget to escape strings with \"
+          signingConfig: signingConfigs.uat
+      ios:
+        bundleId: "go.template.flutter.uat"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+    prod:
+      app:
+        name: "FlutterTemplateApp"
+      android:
+        applicationId: "go.template.flutter"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+        customConfig:
+          signingConfig: signingConfigs.prod
+      ios:
+        bundleId: "go.template.flutter"
+        generateDummyAssets: true
+        icon: "assets/images/icons/appicon.png"
+
 
 
 # For information on the generic Dart part of this file, see the
